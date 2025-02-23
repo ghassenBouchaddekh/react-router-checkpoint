@@ -2,10 +2,13 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
 import NavBar from "./components/NavBar"
 import Movies from "./pages/Movies"
 import MovieDescription from "./pages/MovieDescription"
+import { ToastContainer } from "react-toastify"
+import NewMovie from "./pages/NewMovie"
 function App() {
 
   const AppLayout=()=>(
     <>
+    <ToastContainer/>
     <NavBar/>
     <Outlet/>
     </>
@@ -27,7 +30,7 @@ function App() {
         },
         {
           path:"/add",
-          element:<MovieDescription/>
+          element:<NewMovie/>
 
         }
       ]

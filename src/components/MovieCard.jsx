@@ -1,19 +1,17 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
 
-function MovieCard({movie}) {
+import { Link } from "react-router-dom";
+
+function MovieCard({ movie }) {
   return (
-    <Link to={"/movies/"+movie.id}>
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={movie.posterURL} />
-      <Card.Body>
-        <Card.Title>{movie.title}</Card.Title>
-        <Card.Text>
-          {movie.description}
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <Link to={"/movies/" + movie.id}>
+      <div className="movie-card">
+        <img src={movie.posterURL} alt="" />
+        <div className="movie-card-info">
+
+        <h3>{movie.title}</h3>
+        <h4>{movie.rating}</h4>
+        </div>
+      </div>
     </Link>
   );
 }

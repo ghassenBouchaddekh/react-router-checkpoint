@@ -3,8 +3,8 @@ import MoviesList from "../components/MoviesList"
 function movies() {
     
   return (
-    <div className='d-flex flex-column gap-4 p-3'>
-        <h1 className='text-center'>Movies</h1>
+    <div className='movies-container'>
+        <h1 className='page-title'>Movies</h1>
         <MoviesList/>
     </div>
   )

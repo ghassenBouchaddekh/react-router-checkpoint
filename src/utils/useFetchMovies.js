@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
 import appAxios from "./AppAxios";
+import { toast } from "react-toastify";
 
-function useFetchMovies({id}) {
+function useFetchMovies() {
 
     const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
   
     useEffect(function () {
-      setLoading(true);
-      appAxios
-        .get("/movies/"+(id?id:""))
+      toast.promise(
+        appAxios
+        .get("/movies")
         .then((res) => {
           setMovies(res.data);
         })
-        .catch((e) => setError(e))
-        .finally(() => setLoading(false));
-    }, [id]);
+      ,{pending:"loading",error:"error"})
+    });
   
   return (
-    {loading,movies,setMovies,error}
+    {movies,setMovies}
   )
 }
 
